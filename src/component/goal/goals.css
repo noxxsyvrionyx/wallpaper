@@ -1,0 +1,145 @@
+/* -------------------------
+   Root Container (TOP-LOCKED)
+-------------------------- */
+.goals-root {
+  position: fixed;
+  top: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(720px, 92vw);
+  z-index: 999;
+  font-family: 'Orbitron', system-ui, sans-serif;
+}
+
+/* -------------------------
+   Header Button (Always Visible)
+-------------------------- */
+.goals-toggle {
+  width: 100%;
+  background: transparent;
+  border: 2px solid var(--valorant-cyan);
+  padding: 1.1rem 1.5rem;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: var(--valorant-text);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+
+  box-shadow: 0 0 12px rgba(124, 243, 255, 0.35);
+  backdrop-filter: blur(4px);
+}
+
+.goals-title {
+  text-shadow:
+    0 0 4px rgba(124, 243, 255, 0.6),
+    0 0 10px rgba(79, 209, 255, 0.4);
+}
+
+/* -------------------------
+   Dropdown Panel (Below Header)
+-------------------------- */
+.goals-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background: rgba(11, 18, 32, 0.9);
+  border: 1px solid rgba(124, 243, 255, 0.25);
+  border-top: none;
+
+  transition:
+    max-height 0.6s ease,
+    opacity 0.35s ease;
+}
+
+.goals-panel.open {
+  max-height: 70vh;
+  opacity: 1;
+}
+
+/* -------------------------
+   Goals List
+-------------------------- */
+.goals-list {
+  list-style: none;
+  padding: 1.4rem;
+}
+
+.goals-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.goal-text {
+  cursor: pointer;
+  padding-left: 1.3rem;
+  position: relative;
+}
+
+.goal-text::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--valorant-cyan);
+  text-shadow: 0 0 6px rgba(124, 243, 255, 0.8);
+}
+
+/* Completed */
+.goals-list li.done .goal-text {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.goals-list li.done .goal-text::before {
+  content: "✔";
+  color: #7cffb2;
+}
+
+/* -------------------------
+   Remove Button
+-------------------------- */
+.goal-remove {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+
+.goal-remove:hover {
+  color: #ff6b6b;
+}
+
+/* -------------------------
+   Add Section
+-------------------------- */
+.goals-add {
+  display: flex;
+  gap: 0.7rem;
+  padding: 0 1.4rem 1.4rem;
+}
+
+.goals-add input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid rgba(124, 243, 255, 0.4);
+  padding: 0.6rem;
+  color: var(--valorant-text);
+}
+
+.goals-add button {
+  background: transparent;
+  border: 1px solid var(--valorant-cyan);
+  color: var(--valorant-text);
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+}
+
+.goals-add button:hover {
+  background: var(--valorant-cyan);
+  color: var(--valorant-bg);
+}

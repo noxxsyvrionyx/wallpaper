@@ -1,0 +1,105 @@
+/* -------------------------
+   Sci-Fi Wallpaper Font
+-------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap');
+
+/* -------------------------
+   Reset
+-------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* -------------------------
+   Theme Variables
+-------------------------- */
+:root {
+  --neon-blue: #4fd1ff;
+  --neon-cyan: #7cf3ff;
+  --bg-dark: #0b1220;
+  --text-main: #e6faff;
+}
+
+/* -------------------------
+   Wallpaper Base
+-------------------------- */
+body {
+  background:
+    radial-gradient(circle at top, #111a2f, var(--bg-dark)),
+    radial-gradient(circle at bottom right, rgba(79, 209, 255, 0.08), transparent 60%);
+  font-family: 'Orbitron', system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+}
+
+/* -------------------------
+   Wallpaper Text
+-------------------------- */
+.wallpaper-text {
+  position: relative;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 700;
+  letter-spacing: clamp(0.08em, 0.6vw, 0.16em);
+  text-align: center;
+
+  text-shadow:
+    0 0 3px rgba(124, 243, 255, 0.7),
+    0 0 10px rgba(79, 209, 255, 0.5),
+    0 0 25px rgba(79, 209, 255, 0.25),
+    0 0 50px rgba(79, 209, 255, 0.1);
+}
+
+/* -------------------------
+   Light Sweep / Pearl Effect
+-------------------------- */
+.wallpaper-text::after {
+  content: "";
+  position: absolute;
+  inset: -15%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(124, 243, 255, 0.35) 45%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(124, 243, 255, 0.35) 55%,
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* -------------------------
+   Subtle Grain (Wallpaper Feel)
+-------------------------- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* -------------------------
+   Mobile Polish
+-------------------------- */
+@media (max-width: 480px) {
+  .wallpaper-text {
+    font-size: clamp(2rem, 12vw, 4rem);
+    letter-spacing: 0.06em;
+  }
+}
